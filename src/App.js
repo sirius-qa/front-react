@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CustomButton from "./components/CustomButton/CustomButton";
 
 const useStyles = makeStyles(() => ({
-  root: {
+  container: {
     height: "100vh",
     width: "100vw",
     display: "flex",
@@ -36,7 +36,7 @@ const App = () => {
   };
 
   return (
-    <div className={styles.root}>
+    <div className={styles.container}>
       <p>Count: {count}</p>
       <div className={styles.buttonsContainer}>
         <CustomButton type="button" onClick={handleDecrement}>
