@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Setting up ESLint + Prettier
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Delete "eslintConfig" entry from package.json.
+2. Run `npx eslint --init`.
+3. How would you like to use ESLint? To check syntax, find problems and enforce code style
+4. What type of modules does your project use? JavaScript modules (import/export)
+5. Which framework does your project use? React
+6. Does your project use TypeScript? No
+7. Where does your code run? Browser
+8. How would you like to define a style for your project? Use a popular style guide
+9. Which style guide do you want to follow? Airbnb
+10. What format do you want your config file to be in? JavaScript
+11. Would you like to install them now with npm? Yes
 
-## Available Scripts
+<img width="1071" alt="Screen Shot 2021-09-20 at 9 31 34 AM" src="https://user-images.githubusercontent.com/32375741/134003270-08e08e7c-9cfa-4a30-b82d-d0b33dfcc42d.png">
 
-In the project directory, you can run:
 
-### `npm start`
+12. devDependencies in package.json should now look like this:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img width="342" alt="Screen Shot 2021-09-20 at 9 35 52 AM" src="https://user-images.githubusercontent.com/32375741/134003223-0131a360-5eff-4e25-b762-f27770fb84fb.png">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+13. Install these extra devDependencies:
 
-### `npm test`
+`npm i -D eslint-config-prettier eslint-plugin-jest prettier eslint-plugin-prettier`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="348" alt="Screen Shot 2021-09-20 at 9 38 36 AM" src="https://user-images.githubusercontent.com/32375741/134003521-13d7bde8-a26b-4d4a-92f6-c1cc4d0fad76.png">
 
-### `npm run build`
+14. Modify `.eslintrc.js` file with this:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier",
+    "plugin:jest/recommended",
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: "module",
+  },
+  plugins: ["react", "prettier", "jest"],
+  rules: {
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
+  },
+};
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+15. Create `.prettierrc.json` file with this content:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+{
+  "printWidth": 100,
+  "singleQuote": false
+}
+```
 
-### `npm run eject`
+## Integrate with VSCode
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Install ESLint extension
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="910" alt="Screen Shot 2021-09-20 at 9 42 28 AM" src="https://user-images.githubusercontent.com/32375741/134004073-c153b265-fdb8-46eb-a419-1c7f6395f0c2.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Open `settings.json` (Preferences > Settings)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img width="1383" alt="Screen Shot 2021-09-20 at 9 44 41 AM" src="https://user-images.githubusercontent.com/32375741/134004477-54595d0c-61a9-42c0-b194-c7544ff056fa.png">
 
-## Learn More
+3. Copy this content:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+{
+  "[javascript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  }
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Integrate with WebStorm
 
-### Code Splitting
+...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Setting up Husky
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+...
