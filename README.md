@@ -93,7 +93,18 @@ module.exports = {
 
 ## Integrate with WebStorm
 
-...
+1. Go to `Preferences > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint`.
+2. Select `Automatic ESLint configuration`.
+3. Check `Run eslint --fix on save`.
+
+![Screen Shot 2021-09-20 at 10 03 46 AM](https://user-images.githubusercontent.com/32375741/134006910-5ea86232-5e64-4009-b748-93e32f2405b8.png)
+
+4. Go to `Preferences > Languages & Frameworks > JavaScript > Prettier`.
+5. Select `Prettier package`: `<projectDir>/node_modules/prettier`.
+6. Check `Run on save for files`: `{**/*,*}.{js,ts,jsx,tsx}`.
+
+![Screen Shot 2021-09-20 at 10 07 39 AM](https://user-images.githubusercontent.com/32375741/134007459-c0822044-807a-4a82-bd2d-43dbb8631d21.png)
+
 
 # Setting up Husky
 
