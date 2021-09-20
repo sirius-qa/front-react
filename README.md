@@ -108,4 +108,27 @@ module.exports = {
 
 # Setting up Husky
 
-...
+Husky is specifically for a pre-commit hook (running ESLint + Prettier + Test commands), but can be extended to run any other script.
+
+1. Run `npm i -D husky lint-staged`.
+2. Run `npx husky install`.
+3. Run `npx husky add .husky/pre-commit "npx lint-staged"`.
+4. Add a `lint-staged` entry to your package.json:
+
+```
+"lint-staged": {
+  "src/**/*.{js,jsx,ts,tsx}": [
+    "npm run lint:fix",
+    "npm run prettier:write",
+    "npm run test:precommit"
+  ]
+}
+```
+
+5. Add the following scripts to the `scripts` entry in your package.json:
+
+```
+  "test:precommit": "npm run test -- --ci --watchAll=false --findRelatedTests --bail",
+  "lint:fix": "eslint --fix",
+  "prettier:write": "prettier --write",
+```
