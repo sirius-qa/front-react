@@ -1,6 +1,6 @@
 # Setting up ESLint + Prettier
 
-1. Delete "eslintConfig" entry from package.json.
+1. Delete `eslintConfig` entry from package.json.
 2. Run `npx eslint --init`.
 3. How would you like to use ESLint? To check syntax, find problems and enforce code style
 4. What type of modules does your project use? JavaScript modules (import/export)
