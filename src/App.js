@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
   buttonsContainer: {
     "& > *:not(:last-child)": {
-      marginRight: "1rem",
+      marginRight: "1.5rem",
     },
   },
 }));
