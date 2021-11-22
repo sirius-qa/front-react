@@ -1,9 +1,18 @@
 This is a basic React project with initial ESLint + Prettier configuration, following the Airbnb style guide.
 Husky is also set up with two hooks:
 1. Pre-commit: runs ESLint, Prettier and Jest tests.
-2. Post-merge: runs npm install.
+2. Post-merge: runs npm install (not really recommended, it's there just for showcase purposes).
 
 If you want to implement these in an existing project, follow the steps below:
+
+# Clone the project
+
+Run `git clone https://github.com/sirius-qa/front-react.git` on your machine terminal.
+
+# Install dependencies
+
+1. Run `npm install` (or `yarn`).
+2. Run `npx husky install`.
 
 # Setting up ESLint + Prettier
 
@@ -32,7 +41,7 @@ If you want to implement these in an existing project, follow the steps below:
 
 <img width="348" alt="Screen Shot 2021-09-20 at 9 38 36 AM" src="https://user-images.githubusercontent.com/32375741/134003521-13d7bde8-a26b-4d4a-92f6-c1cc4d0fad76.png">
 
-14. Modify `.eslintrc.js` file with this:
+14. Modify `.eslintrc.js` file with this (disclaimer: these are some rules that I found useful, but you can override them with your own set of rules).
 
 ```
 module.exports = {
@@ -61,7 +70,7 @@ module.exports = {
 };
 ```
 
-15. Create `.prettierrc.json` file with this content:
+15. Create `.prettierrc.json` file with this content (disclaimer: these are some rules that I found useful, but you can override them with your own set of rules).
 
 ```
 {
@@ -113,7 +122,7 @@ module.exports = {
 ![Screen Shot 2021-09-20 at 10 07 39 AM](https://user-images.githubusercontent.com/32375741/134007459-c0822044-807a-4a82-bd2d-43dbb8631d21.png)
 
 
-# Setting up Husky
+# Setting up Husky (not needed since it's already configured in this project - leaving it for documentation purposes).
 
 Husky is specifically for a pre-commit hook (running ESLint + Prettier + Test commands), but can be extended to run any other script.
 
