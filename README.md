@@ -3,7 +3,6 @@ Husky is also set up with two hooks:
 1. Pre-commit: runs ESLint, Prettier and Jest tests.
 2. Post-merge: runs npm install (not really recommended, it's there just for showcase purposes).
 
-If you want to implement these in an existing project, follow the steps below:
 
 # Clone the project
 
@@ -13,6 +12,12 @@ Run `git clone https://github.com/sirius-qa/front-react.git` on your machine ter
 
 1. Run `npm install` (or `yarn`).
 2. Run `npx husky install`.
+
+Done.
+
+----------------------------------------------------------------------------------------------------
+
+If you want to implement these in an existing project which does not have ESLint, Prettier and Husky set up, follow the steps below:
 
 # Setting up ESLint + Prettier
 
@@ -122,7 +127,7 @@ module.exports = {
 ![Screen Shot 2021-09-20 at 10 07 39 AM](https://user-images.githubusercontent.com/32375741/134007459-c0822044-807a-4a82-bd2d-43dbb8631d21.png)
 
 
-# Setting up Husky (not needed since it's already configured in this project - leaving it for documentation purposes).
+# Setting up Husky
 
 Husky is specifically for a pre-commit hook (running ESLint + Prettier + Test commands), but can be extended to run any other script.
 
