@@ -15,6 +15,48 @@ Run `git clone https://github.com/sirius-qa/front-react.git` on your machine ter
 
 Done.
 
+## Integrate with VSCode
+
+1. Install ESLint extension
+
+<img width="910" alt="Screen Shot 2021-09-20 at 9 42 28 AM" src="https://user-images.githubusercontent.com/32375741/134004073-c153b265-fdb8-46eb-a419-1c7f6395f0c2.png">
+
+2. Open `settings.json` (Preferences > Settings)
+
+<img width="1383" alt="Screen Shot 2021-09-20 at 9 44 41 AM" src="https://user-images.githubusercontent.com/32375741/134004477-54595d0c-61a9-42c0-b194-c7544ff056fa.png">
+
+3. Copy this content:
+
+```
+{
+  "[javascript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  }
+}
+```
+
+## Integrate with WebStorm
+
+1. Go to `Preferences > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint`.
+2. Select `Automatic ESLint configuration`.
+3. Check `Run eslint --fix on save`.
+
+![Screen Shot 2021-09-20 at 10 03 46 AM](https://user-images.githubusercontent.com/32375741/134006910-5ea86232-5e64-4009-b748-93e32f2405b8.png)
+
+4. Go to `Preferences > Languages & Frameworks > JavaScript > Prettier`.
+5. Select `Prettier package`: `<projectDir>/node_modules/prettier`.
+6. Check `Run on save for files`: `{**/*,*}.{js,ts,jsx,tsx}`.
+
+![Screen Shot 2021-09-20 at 10 07 39 AM](https://user-images.githubusercontent.com/32375741/134007459-c0822044-807a-4a82-bd2d-43dbb8631d21.png)
+
 ----------------------------------------------------------------------------------------------------
 
 If you want to implement these in an existing project which does not have ESLint, Prettier and Husky set up, follow the steps below:
@@ -83,49 +125,6 @@ module.exports = {
   "singleQuote": false
 }
 ```
-
-## Integrate with VSCode
-
-1. Install ESLint extension
-
-<img width="910" alt="Screen Shot 2021-09-20 at 9 42 28 AM" src="https://user-images.githubusercontent.com/32375741/134004073-c153b265-fdb8-46eb-a419-1c7f6395f0c2.png">
-
-2. Open `settings.json` (Preferences > Settings)
-
-<img width="1383" alt="Screen Shot 2021-09-20 at 9 44 41 AM" src="https://user-images.githubusercontent.com/32375741/134004477-54595d0c-61a9-42c0-b194-c7544ff056fa.png">
-
-3. Copy this content:
-
-```
-{
-  "[javascript]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[javascriptreact]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "editor.formatOnSave": true,
-  "eslint.alwaysShowStatus": true,
-  "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-  }
-}
-```
-
-## Integrate with WebStorm
-
-1. Go to `Preferences > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint`.
-2. Select `Automatic ESLint configuration`.
-3. Check `Run eslint --fix on save`.
-
-![Screen Shot 2021-09-20 at 10 03 46 AM](https://user-images.githubusercontent.com/32375741/134006910-5ea86232-5e64-4009-b748-93e32f2405b8.png)
-
-4. Go to `Preferences > Languages & Frameworks > JavaScript > Prettier`.
-5. Select `Prettier package`: `<projectDir>/node_modules/prettier`.
-6. Check `Run on save for files`: `{**/*,*}.{js,ts,jsx,tsx}`.
-
-![Screen Shot 2021-09-20 at 10 07 39 AM](https://user-images.githubusercontent.com/32375741/134007459-c0822044-807a-4a82-bd2d-43dbb8631d21.png)
-
 
 # Setting up Husky
 
